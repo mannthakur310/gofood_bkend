@@ -9,7 +9,6 @@ require("dotenv").config()
 router.post(
   "/createuser",
   body("email", "Invalid email").isEmail(),
-  body("name").optional().isLength({ min: 6 }),
   body("password", "Invalid password").isLength({ min: 6 }),
   async (req, res) => {
     const errors = validationResult(req);
